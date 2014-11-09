@@ -1,6 +1,10 @@
+require_relative 'coach'
+
+
 class Station
 
   attr_accessor :passengers
+  attr_accessor :coaches
 
   def initialize
     @passengers = []
@@ -16,6 +20,21 @@ class Station
     self.passengers.delete(passenger)
   end
 
-  
+  def board_passenger(coach, passenger)
+    coach.board_passenger(passenger) if self.coaches.include?(coach)
+    self.passengers.delete(passenger)
+  end
+
+  def send_coach(coach, station)
+    station.coaches << coach if self.coaches.include?(coach)
+    self.coaches.delete(coach)
+  end
+
+  def alight_passenger(coach, passenger)
+    self.passengers << passenger if self.coaches.include?(coach)
+    coach.alight_passenger(passenger)
+  end
+
+
 
 end
