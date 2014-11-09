@@ -1,0 +1,8 @@
+require './lib/oyster.rb'
+require './lib/passenger.rb'
+require './lib/station.rb'
+
+me = Passenger.new
+Bank = Station.new
+me.buy_card
+me.topup_card(30)

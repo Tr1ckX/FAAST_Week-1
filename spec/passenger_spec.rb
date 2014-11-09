@@ -3,29 +3,26 @@ require './lib/passenger'
 describe Passenger do
 
   let(:passenger) {Passenger.new}
-  let(:station) {double :station}
-  let(:empty_passengers) {double :passengers=[]}
-  let(:full_passengers) {double :passengers=[passenger]}
+  let(:card) {double :card}
 
-
-  # it 'can touch into a station' do
-  #   expect(station).to receive(:empty_passengers)
-  #   passenger.touch_in(station)
-  #   expect(station.empty_passengers).not_to be empty
-  # end
-
-  it "should be able to topup it's credit" do
-    passenger.topup(5)
-    expect(passenger.credit).to eq (9)
+  it 'should not to have a card when initialized' do
+    expect(@card).to be(nil)
   end
 
-  it 'should touch out from a station' do
-    expect(station).to receive(:full_passengers)
-    passenger.touch_out(station)
-    expect(station.full_passengers).to be empty
+  it 'can buy a card' do
+    passenger.buy_card
+    expect(passenger.has_card?).to be true
   end
 
+  it 'cannot buy card if he/she already has one' do
+    passenger.buy_card
+    expect(lambda {passenger.buy_card}).to raise_error(RuntimeError)
+  end
 
-
+  it 'can top up the card' do
+    passenger.buy_card
+    expect(card).to receive(:topup)
+    passenger.topup_card(20)
+  end
 
 end
