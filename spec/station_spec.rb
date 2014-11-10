@@ -73,4 +73,24 @@ describe Station do
     expect(station_A.coaches).to eq([])
   end
 
+  it 'should let release the passenger from the coach' do
+    station.coaches = [coach]
+    expect(coach).to receive(:alight_passenger)
+    station.alight_passenger(coach, passenger)
+  end
+
+  it 'should put the passenger into the station' do
+    station.passengers = []
+    station.coaches = [coach]
+    allow(coach).to receive(:alight_passenger)
+    station.alight_passenger(coach, passenger)
+    expect(station.passengers).to eq([passenger])
+  end
+
+  it 'should deploy a coach to the station' do
+    station.coaches = []
+    station.deploy(coach)
+    station.coaches = [coach]
+  end
+
 end
