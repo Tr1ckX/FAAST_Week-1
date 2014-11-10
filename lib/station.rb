@@ -8,11 +8,12 @@ class Station
 
   def initialize
     @passengers = []
+    @coaches = []
   end
 
   def enter(passenger)
     raise "Not enough money!" if passenger.allow_to_enter_station? == false
-    self.passengers << passenger if passenger.allow_to_enter_station?
+    self.passengers << passenger if passenger.allow_to_enter_station? && self.passengers.include?(passenger) == false
   end
 
   def exit(passenger)
@@ -35,6 +36,9 @@ class Station
     coach.alight_passenger(passenger)
   end
 
+  def deploy(coach)
+    self.coaches << coach if self.coaches.include?(coach) == false
+  end
 
 
 end

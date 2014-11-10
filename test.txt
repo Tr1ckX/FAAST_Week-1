@@ -1,8 +1,21 @@
+
+irb
 require './lib/oyster.rb'
 require './lib/passenger.rb'
 require './lib/station.rb'
+require './lib/station.rb'
 
 me = Passenger.new
+B = Passenger.new
 Bank = Station.new
+Victoria = Station.new
+c1 = Coach.new
+c2 = Coach.new
+Bank.deploy(c1)
+Bank.deploy(c2)
 me.buy_card
 me.topup_card(30)
+B.buy_card
+B.topup_card(30)
+Bank.board_passenger(c1, me)
+Bank.board_passenger(c1, B)
