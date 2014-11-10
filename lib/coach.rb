@@ -8,14 +8,23 @@ class Coach
     @passengers = []
   end
 
-  def board_passenger(passenger)
-    raise "Coach is full!" if self.passengers.count == @capacity
-    self.passengers << passenger if self.passengers.count < @capacity && self.passengers.include?(passenger) == false
+  def accept_passenger(passenger)
+    raise "Coach is full!" if full?
+    self.passengers << passenger if self.full? == false && accepted_passenger?(passenger) == false
+  end
+
+  def full?
+    self.passengers.count == @capacity
+  end
+
+  def accepted_passenger?(passenger)
+    self.passengers.include?(passenger)
   end
 
   def alight_passenger(passenger)
     self.passengers.delete(passenger)
   end
+
 
 
 

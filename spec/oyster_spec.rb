@@ -2,7 +2,7 @@ require './lib/oyster'
 
 describe Card do
 
-    let(:card) {Card.new credit:10}
+    let(:card) {Card.new credit: 10}
 
     it 'should allow to set the default credit' do
       expect(card.credit). to eq(10)

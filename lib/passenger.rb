@@ -15,7 +15,7 @@ class Passenger
   end
 
   def has_card?
-    @card.instance_of? Card
+    !@card.nil?
   end
 
   def topup_card(amount)

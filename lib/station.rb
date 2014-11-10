@@ -11,9 +11,13 @@ class Station
     @coaches = []
   end
 
+  def passenger_entered
+    self.passengers.include?(passenger)
+  end
+
   def enter(passenger)
     raise "Not enough money!" if passenger.allow_to_enter_station? == false
-    self.passengers << passenger if passenger.allow_to_enter_station? && self.passengers.include?(passenger) == false
+    self.passengers << passenger if passenger.allow_to_enter_station? &&  passenger_entered == false
   end
 
   def exit(passenger)
@@ -22,7 +26,7 @@ class Station
   end
 
   def board_passenger(coach, passenger)
-    coach.board_passenger(passenger) if self.coaches.include?(coach)
+    coach.accept_passenger(passenger) if self.coaches.include?(coach)
     self.passengers.delete(passenger)
   end
 

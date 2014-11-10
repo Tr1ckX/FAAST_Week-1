@@ -4,7 +4,7 @@ describe Station do
 
   let(:station) {Station.new}
 
-  it 'should ' do
+  it 'should' do
 
   end
 
