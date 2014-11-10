@@ -2,8 +2,8 @@ require './lib/coach'
 
 describe Coach do
 
-  let(:coach)     {Coach.new }
-  let(:passenger) {double :passenger}
+  let(:coach)     { Coach.new         }
+  let(:passenger) { double :passenger }
 
   it 'should be initialized with cappacity 40' do
     expect(coach.capacity).to eq(40)
@@ -14,7 +14,12 @@ describe Coach do
     expect(coach.passengers).to eq([passenger])
   end
 
-  it "shouldn't accept passenger if full" do
+  it "should know when it is full" do
+    coach.capacity.times {coach.accept_passenger(double :passenger)}
+    expect(coach.full?).to be true
+  end
+
+  it "shouldn't accept passenger when it is full" do
     coach.capacity.times {coach.accept_passenger(double :passenger)}
     expect(lambda{coach.accept_passenger(passenger)}).to raise_error(RuntimeError)
   end

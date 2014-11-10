@@ -1,4 +1,5 @@
 require_relative 'coach'
+require_relative 'passenger'
 
 
 class Station
@@ -11,18 +12,22 @@ class Station
     @coaches = []
   end
 
-  def passenger_entered
+  def passenger_entered?(passenger)
     self.passengers.include?(passenger)
   end
 
   def enter(passenger)
     raise "Not enough money!" if passenger.allow_to_enter_station? == false
-    self.passengers << passenger if passenger.allow_to_enter_station? &&  passenger_entered == false
+    self.passengers << passenger if passenger.allow_to_enter_station? &&  passenger_entered?(passenger) == false
   end
 
-  def exit(passenger)
-    passenger.card.credit -= 3
+  def exit_p(passenger)
+    deduct(passenger, 3)
     self.passengers.delete(passenger)
+  end
+
+  def deduct(passenger, amount)
+    passenger.card.credit -= amount
   end
 
   def board_passenger(coach, passenger)
