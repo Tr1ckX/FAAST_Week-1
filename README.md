@@ -1,13 +1,17 @@
 FAAST
 =====
+Briefing
 
-### Classes:
+The Challenge was to design an underground train network.
 
-* Player
-* Ship
-* Grid
-* Cell
-* Engine
+Expectations:
+The system must contain trains
+Trains travel from station to station
+Inside the stations, passengers must be able to alight and board the train
+A passenger must 'touch in' and 'touch out' of their station
+Each coach maximum capacity is 40 passenger
+Each train has a number of coaches (not explicitly fixed)
+As a bonus - charging system -> passengers can touch in with more than £2 credit
 
 -----------------------------
 
