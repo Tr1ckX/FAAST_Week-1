@@ -5,8 +5,11 @@ Briefing
 The Challenge was to design an underground train network.
 
 Expectations:
+
 The system must contain trains
+
 Trains travel from station to station
+
 Inside the stations, passengers must be able to alight and board the train
 A passenger must 'touch in' and 'touch out' of their station
 Each coach maximum capacity is 40 passenger
