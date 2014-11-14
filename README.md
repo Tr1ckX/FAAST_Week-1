@@ -16,7 +16,7 @@ A passenger must 'touch in' and 'touch out' of their station
 
 Each coach maximum capacity is 40 passenger
 
-Each train has a number of coaches (not explicitly fixed)
+Each train has a number of coaches
 
 As a bonus - charging system -> passengers can touch in with more than £2 credit
 
