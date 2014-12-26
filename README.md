@@ -1,8 +1,15 @@
 FAAST
 =====
-Briefing
+<div>
+<img src = https://img.shields.io/badge/%20-GitHub-orange.svg>
+<img src = https://img.shields.io/badge/%20-Ruby-blue.svg>
+<img src = https://img.shields.io/badge/%20-RSpec-red.svg>
+</div>
+<br>
 
-The Challenge was to design an underground train network.
+<h5> First week Challenge at [Makers Academy](http://www.makersacademy.com)
+
+Design an underground train network using the learnt skills and the SOLID principles.
 
 Expectations:
 -------------------
