@@ -11,6 +11,8 @@ FAAST
 
 Design an underground train network using the learnt skills and the SOLID principles.
 
+You can find this week's projects [here](https://github.com/Tr1ckX/Fizzbuzz) and [here](https://github.com/Tr1ckX/Boris-Bike)
+
 Expectations:
 -------------------
 The system must contain trains
